@@ -60,11 +60,11 @@ def buscar_pais(lista_paises):
     for pais in lista_paises: #Recorre la lista de paies, elemento por elemento.
         nombre_pais_lower = pais["nombre"].lower() #Cambia a minusculas el pais de la lista para luego compararlo.
 
-        if nombre_pais_lower == busqueda_lower: # Compara el pais con el pais buscado.
-            pais_encontrado = pais # Si lo encuentra le asigna el diccionario de ese pais para mostrar luego los datos.
+        if nombre_pais_lower == busqueda_lower: #Compara el pais con el pais buscado.
+            pais_encontrado = pais #Si lo encuentra le asigna el diccionario de ese pais para mostrar luego los datos.
             break
     
-    if pais_encontrado: # Si pais_encontrado tiene algun elemento hace lo siguiente.
+    if pais_encontrado: #Si pais_encontrado tiene algun elemento hace lo siguiente.
         print(f"\nSe ha encontrado 1 resultado para la busqueda de {busqueda}...")
         
         _mostrar_pais(pais_encontrado) #Llama a la funcion mostrar pais para mostrar los datos del pais ordenadamente.
@@ -72,13 +72,5 @@ def buscar_pais(lista_paises):
     else:
         print(f"\nNo se encontro ningun resultado para {busqueda}") #Si no lo encuentra muestra el mensaje.
 
-#Funcion Filtrar continente.
-
-    def filtrar_por_continente(lista_paises):
-        print("\n2 - Filtrar paises por continente.")
-
-        continentes_disponibles = set()
-    
-        for pais in lista_paises:
-            continentes_disponibles.add(pais["continente"])
+    ssssss
     
