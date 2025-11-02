@@ -26,15 +26,15 @@ while True: #Usa bucle while para desplegar el menu y que el usuario elija la op
     elif opcion == 2:    
         funciones.filtrar_continente(lista_paises)
     elif opcion == 3:
-            funciones.filtrar_poblacion(lista_paises)
+            funciones.filtrar_superficie_poblacion(lista_paises, opcion)
     elif opcion == 4:
-            funciones.filtrar_superficie(lista_paises)
+            funciones.filtrar_superficie_poblacion(lista_paises, opcion)
         
     elif opcion == 5:
             funciones.ordenar_paises(lista_paises)
         
     elif opcion == 6:
-            funciones.mostrar_estadisticas(lista_paises)
+            funciones.menu_estadisticas(lista_paises)
 
     elif opcion == 0:
         print("\nSaliendo del programa.")

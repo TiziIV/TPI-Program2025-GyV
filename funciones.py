@@ -1,4 +1,7 @@
 #Funcion mostrar menu.
+import time
+import csv
+
 def mostrar_menu():
     print("\n--- 🌍 Menú de Gestión de Países ---")
     print("1. Buscar país por nombre")
@@ -13,7 +16,6 @@ def mostrar_menu():
 
 def _mostrar_pais(pais):
     print(f"\nCargando datos...")
-    import time
     time.sleep(1)
     print(f"\n  ------------------------------")
     print(f"  Nombre:     {pais['nombre']}")
@@ -24,8 +26,6 @@ def _mostrar_pais(pais):
     print(f"  ------------------------------")
 
 #Funcion cargar datos desde CSV
-
-import csv
 
 def cargar_csv (nombre_archivo):
     lista_paises = [] #Crea lista de paises vacias.
@@ -53,21 +53,24 @@ def buscar_pais(lista_paises):
     print("\n1 - Buscar país por nombre.") 
     busqueda = input("\nIngrese nombre del país que desea buscar: ").strip() #Le pide al usuario el pais que desea buscar.
     
+    if not busqueda:
+        print("Error: No ingresó un término de búsqueda.")
+        return
+    
     busqueda_lower = busqueda.lower() #Cambia a minusculas para busarlo en la lista.
 
-    pais_encontrado = None #Define que todavia no encuentra ningun pais que coincida.
+    pais_encontrado = []#Define que todavia no encuentra ningun pais que coincida.
 
     for pais in lista_paises: #Recorre la lista de paies, elemento por elemento.
         nombre_pais_lower = pais["nombre"].lower() #Cambia a minusculas el pais de la lista para luego compararlo.
 
-        if nombre_pais_lower == busqueda_lower: # Compara el pais con el pais buscado.
-            pais_encontrado = pais # Si lo encuentra le asigna el diccionario de ese pais para mostrar luego los datos.
-            break
+        if busqueda_lower in nombre_pais_lower: # Compara el pais con el pais buscado.
+            pais_encontrado.append(pais) # Si lo encuentra le asigna el diccionario de ese pais para mostrar luego los datos.
     
     if pais_encontrado: # Si pais_encontrado tiene algun elemento hace lo siguiente.
-        print(f"\nSe ha encontrado 1 resultado para la busqueda de {busqueda}...")
-        
-        _mostrar_pais(pais_encontrado) #Llama a la funcion mostrar pais para mostrar los datos del pais ordenadamente.
+        print(f"\nSe ha encontrado {len(pais_encontrado)} resultado para la busqueda de {busqueda}...")
+        for pais in pais_encontrado:
+            _mostrar_pais(pais) #Llama a la funcion mostrar pais para mostrar los datos del pais ordenadamente.
 
     else:
         print(f"\nNo se encontro ningun resultado para {busqueda}") #Si no lo encuentra muestra el mensaje.
@@ -103,46 +106,182 @@ def filtrar_continente(lista_paises):
     else:
         print(f"\nNo se encontaron paises en {continente_buscado}") #Si la lista esta vacia indica que no se encontraron paises.
 
-#Filtrar por poblacion
+#Filtrar por poblacion y superficie
 
-def filtrar_poblacion(lista_paises):
-    print("\n2 - Filtrar paises por poblacion.")
+def filtrar_superficie_poblacion(lista_paises,opcion):
+    if opcion == 3: #Verifica cual es la opcion que tiene que trabajar y le asigna el valor correspondiente a la variable.
+        atributo = "poblacion"
+    elif opcion == 4:
+        atributo = "superficie"
     
-    min_poblacion = _obtener_numero_validado ("Ingrese la poblacion minimna [EJ: 100000] [Vacio para 0]: ",0)
-    max_poblacion = _obtener_numero_validado ("Ingrese la poblacion maxima [EJ: 5000000] [Vacio para sin limite]: ",99999999999)
+    print(f"\n{opcion} - Filtrar paises por {atributo}.") 
+    
 
-    if min_poblacion>max_poblacion:
-        print("La poblacion minima no puede ser mayor a la poblacion maxima.")
+    while True: 
+        minimo = input(f"\nIngrese la {atributo} minima[EJ: 100000] [Vacio para 0]: ") 
+        if not minimo:
+            minimo = 0
+            break
+        try:
+            minimo = int(minimo)
+            break
+        except ValueError:
+            print(f"\nEl numero ingresado no es valido, vuelva a intentarlo...")
+            continue
+
+    while True:
+
+        maximo = input(f"\nIngrese la {atributo} maxima [EJ: 5000000] [Vacio para sin limite]: ")
+        valor_maximo = 9999999999999
+        if not maximo:
+            maximo = 9999999999999
+            break
+        try:
+            maximo = int(maximo)
+            break
+        except ValueError:
+            print("\nEl numero ingresado no es valido, vuelva a intentarlo...")
+            continue
+
+    if minimo>maximo:
+        print(f"\nLa {atributo} minima no puede ser mayor a la {atributo} maxima.")
         return
     
     paises_encontrados = []
     
     for pais in lista_paises:
-        if min_poblacion <= pais["poblacion"] <= max_poblacion:
+        if minimo <= pais[atributo] <= maximo:
             paises_encontrados.append(pais)
     if paises_encontrados:
-        print(f"Se encontraron {len(paises_encontrados)} con poblacion entre {min_poblacion} y {max_poblacion}")
+        paises_encontrados = sorted(paises_encontrados, key=lambda pais: pais[atributo], reverse=True)
+        if maximo == valor_maximo:
+            maximo = "Sin limite"
+        print(f"\nSe encontraron {len(paises_encontrados)} con {atributo} entre {minimo} y {maximo}")
         for pais in paises_encontrados:
             _mostrar_pais(pais)
     else:
-        print("No se encontraron paises en ese rango de problacion.")
+        print(f"\nNo se encontraron paises en ese rango de {atributo}.")
 
 
-#Funcion para validar un numero. (Se va utilizar para las funciones de filtrar.)
+#Funcion de ordenar.
 
-def _obtener_numero_validado(mensaje, default_valor):
-    while True: #Bucle infinito hasta que obtengam un número
-        entrada_str = input(mensaje).strip()
-        
-        #Opción 1: El usuario presionó Enter
-        if not entrada_str:
-            return default_valor
-        
-        #Opción 2: El usuario ingreso un numero.
-        try:
-            # Intenta convertirlo a entero
-            valor_int = int(entrada_str)
-            return valor_int #Devuelve el numero
-        except ValueError:
-            # Se repite el bucle
-            print(f"Error: '{entrada_str}' no es un número válido. Intente de nuevo.")
+def ordenar_paises(lista_paises): 
+    print("\n5. Selecciona un criterio de Ordenamiento: \n"
+        "A. Nombre\n"
+        "B. Población\n"
+        "C. Superficie")
+    criterio = input("Ingrese la Opción a elegir (A/B/C): ").upper().strip() # Permitimos al usuario Ingresar el criterio
+
+    match criterio:
+        case "A":
+            opcion = 'nombre'
+        case "B":
+            opcion = 'poblacion'
+        case "C":
+            opcion = 'superficie'
+        case _:
+            print(f"\n Error: La opción '{criterio}' no es válida.")
+            return  # corta la función
+
+    print(f"\nOrdenando por: {opcion}...\n")
+    time.sleep(1)
+
+    # Usa sorted() según el criterio
+    # En caso de elegir la opcion nombre o población se ordena utilizando Sorted(Funciona para ordenar diccionarios)
+    # Y key=lambda devuelve el valor 
+    if opcion == 'nombre': # Asignamos valor a la variable dependiendo del case
+        paises_ordenados = sorted(lista_paises, key=lambda pais: pais['nombre'].lower())
+    elif opcion == 'poblacion': # Asignamos valor a la opcion dependiendo del case
+        paises_ordenados = sorted(lista_paises, key=lambda pais: pais['poblacion'])
+    elif opcion == 'superficie': # Asignamos valor a la opcion dependiendo del case
+    # Validamos que se ingrese bien Ascendente o Descendente
+        while True:
+            try:
+                ascendente_descendente = int(input("\nDesea ordenar la superficie de manera:\n1. Ascendente\n2. Descendente\n👉 Opción: "))
+                if ascendente_descendente not in (1, 2):
+                    print("Error: opción fuera de rango. Intente nuevamente.")
+                    continue  # Vuelve al inicio del while
+                # Ordena según la opción
+                if ascendente_descendente == 1:
+                    paises_ordenados = sorted(lista_paises, key=lambda pais: pais['superficie'])
+                elif ascendente_descendente == 2:
+                    paises_ordenados = sorted(lista_paises, key=lambda pais: pais['superficie'], reverse=True)
+                break  # Sale del while si todo está correcto
+            except ValueError:
+                print("Error: debe ingresar un número (1 o 2).")
+
+    # Mostrar el resultado
+    print(f"--- 🌍 Lista de países ordenada por {opcion} ---")
+    for pais in paises_ordenados:
+        _mostrar_pais(pais)
+
+def menu_estadisticas(lista_paises):
+
+    print("\n---6. Menú de Estaditicas ---")
+    print("1. Pais con Mayor y Menor población")
+    print("2. Promedio de Población")
+    print("3. Promedio superficie")
+    print("4. Cantidad de Paises por continente")
+    try:
+        opcion=int(input("Ingrese que opción desea realizar: "))
+    except ValueError:
+        print("La opcion es invalida, ingrese un numero entre 1 y 4.")
+    match opcion:
+        case 1:
+            paises_mayor_menor(lista_paises)
+        case 2:
+            promedio_poblacion(lista_paises)
+        case 3:
+            promedio_superficie(lista_paises)
+        case 4:
+            paises_continete(lista_paises)
+        case _:
+            print("Error: El valor ingresado no pertenece a la lista de opciones.")
+
+
+def paises_mayor_menor(lista_paises):
+    if not lista_paises:
+        print("⚠️ La lista de países está vacía.")
+        return
+    paises_ordenados=sorted(lista_paises, key=lambda pais: pais['poblacion'])
+    menor=paises_ordenados[0]
+    mayor=paises_ordenados[-1]
+    print(f"\nPais con Mayor población: ")
+    _mostrar_pais(mayor)
+    print(f"\nPais con Menor población: ")
+    _mostrar_pais(menor)
+    
+def promedio_poblacion(lista_paises):
+    if not lista_paises:
+        print("\n⚠️ La lista de países está vacía.")
+        return
+    poblacion_total_mundial=sum(pais['poblacion'] for pais in lista_paises)
+    cantidad_total_paises=len(lista_paises)
+    promedio_paises=poblacion_total_mundial/cantidad_total_paises
+    print(f"\nEl promedio de poblacion Mundial es de: {promedio_paises:,.0f} habitantes")
+
+def promedio_superficie(lista_paises):
+    if not lista_paises:
+        print("\n⚠️ La lista de países está vacía.")
+        return
+    superficie_total_mundial=sum(pais['superficie'] for pais in lista_paises)
+    cantidad_total_paises=len(lista_paises)
+    promedio_superficie_mundial=superficie_total_mundial/cantidad_total_paises
+
+    print(f"\nEl promedio de superficie Mundial es de: {promedio_superficie_mundial:,.0f} km²")
+
+def paises_continete(lista_paises):
+    conteo_continentes = {}
+    if not lista_paises:
+        print("No hay paises cargados.")
+        return
+    for pais in lista_paises:
+        continente = pais["continente"]
+        if continente in conteo_continentes:
+            conteo_continentes[continente] += 1
+        else:
+            conteo_continentes[continente] = 1
+    print("\n---Conteo por Continente---")
+    for continente, conteo in sorted(conteo_continentes.items()):
+        print(f"{continente}: {conteo} países")
+    
