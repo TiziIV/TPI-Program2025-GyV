@@ -125,8 +125,61 @@ def ordenar_paises(lista_paises):
     for pais in paises_ordenados:
         print(f"{pais['nombre']:15} | Población: {pais['poblacion']:>10,} | Superficie: {pais['superficie']:>10,} km²")
 
+# Funcion Estadisticas
 
+def menu_estadisticas(lista_paises):
 
+    print("\n--- Menú de Estaditicas ---")
+    print("1. Pais con Mayor y Menor población")
+    print("2. Promedio de Población")
+    print("3. Promedio superficie")
+    print("4. Cantidad de Paises por continente")
+    opcion=int(input("Ingrese que opción desea realizar: "))
+    match opcion:
+        case 1:
+            paises_mayor_menor(lista_paises)
+        case 2:
+            promedio_poblacion(lista_paises)
+        case 3:
+            promedio_superficie(lista_paises)
+        case 4:
+            print("x")
+        case _:
+            print("Error: El valor ingresado no pertenece a la lista de opciones.")
+    
+def paises_mayor_menor(lista_paises):
+    if not lista_paises:
+        print("⚠️ La lista de países está vacía.")
+        return
+    paises_ordenados=sorted(lista_paises, key=lambda pais: pais['poblacion'])
+    menor=paises_ordenados[0]
+    mayor=paises_ordenados[-1]
+    print(f"\nPais con Mayor población: ")
+    _mostrar_pais(mayor)
+    print(f"\nPais con Menor población: ")
+    _mostrar_pais(menor)
+    
+def promedio_poblacion(lista_paises):
+    if not lista_paises:
+        print("⚠️ La lista de países está vacía.")
+        return
+    poblacion_total_mundial=sum(pais['poblacion'] for pais in lista_paises)
+    cantidad_total_paises=len(lista_paises)
+    promedio_paises=poblacion_total_mundial/cantidad_total_paises
+    print("")
+    print(f"El promedio de poblacion Mundial es de: {promedio_paises:,.0f} habitantes")
+
+def promedio_superficie(lista_paises):
+    if not lista_paises:
+        print("⚠️ La lista de países está vacía.")
+        return
+    superficie_total_mundial=sum(pais['superficie'] for pais in lista_paises)
+    cantidad_total_paises=len(lista_paises)
+    promedio_superficie_mundial=superficie_total_mundial/cantidad_total_paises
+    print("")
+    print(f"El promedio de superficie Mundial es de: {promedio_superficie_mundial:,.0f} km²")
+
+              
 
     
 

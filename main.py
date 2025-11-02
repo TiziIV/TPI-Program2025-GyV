@@ -34,8 +34,9 @@ while True: #Usa bucle while para desplegar el menu y que el usuario elija la op
             funciones.ordenar_paises(lista_paises)
         
     elif opcion == 6:
-            funciones.mostrar_estadisticas(lista_paises)
+            funciones.menu_estadisticas(lista_paises)
 
     elif opcion == 0:
         print("\nSaliendo del programa.")
         break
+
