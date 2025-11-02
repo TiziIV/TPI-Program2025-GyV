@@ -72,5 +72,63 @@ def buscar_pais(lista_paises):
     else:
         print(f"\nNo se encontro ningun resultado para {busqueda}") #Si no lo encuentra muestra el mensaje.
 
-    ssssss
+#Funcion ordenar pais.
+
+def ordenar_paises(lista_paises): 
+    print("\nSelecciona un criterio de Ordenamiento: \n"
+          "A. Nombre\n"
+          "B. Población\n"
+          "C. Superficie")
+    criterio = input("Ingrese la Opción a elegir (A/B/C): ").upper().strip() # Permitimos al usuario Ingresar el criterio
+
+    match criterio:
+        case "A":
+            opcion = 'nombre'
+        case "B":
+            opcion = 'poblacion'
+        case "C":
+            opcion = 'superficie'
+        case _:
+            print(f"\n Error: La opción '{criterio}' no es válida.")
+            return  # corta la función
+
+    print(f"\nOrdenando por: {opcion}...\n")
+    import time
+    time.sleep(1)
+
+    # Usa sorted() según el criterio
+    # En caso de elegir la opcion nombre o población se ordena utilizando Sorted(Funciona para ordenar diccionarios)
+    # Y key=lambda devuelve el valor 
+    if opcion == 'nombre': # Asignamos valor a la variable dependiendo del case
+        paises_ordenados = sorted(lista_paises, key=lambda pais: pais['nombre'].lower())
+    elif opcion == 'poblacion': # Asignamos valor a la opcion dependiendo del case
+        paises_ordenados = sorted(lista_paises, key=lambda pais: pais['poblacion'])
+    elif opcion == 'superficie': # Asignamos valor a la opcion dependiendo del case
+    # Validamos que se ingrese bien Ascendente o Descendente
+        while True:
+            try:
+                ascendente_descendente = int(input("\nDesea ordenar la superficie de manera:\n1. Ascendente\n2. Descendente\n👉 Opción: "))
+                if ascendente_descendente not in (1, 2):
+                    print("Error: opción fuera de rango. Intente nuevamente.")
+                    continue  # Vuelve al inicio del while
+                # Ordena según la opción
+                if ascendente_descendente == 1:
+                    paises_ordenados = sorted(lista_paises, key=lambda pais: pais['superficie'])
+                elif ascendente_descendente == 2:
+                    paises_ordenados = sorted(lista_paises, key=lambda pais: pais['superficie'], reverse=True)
+                break  # Sale del while si todo está correcto
+            except ValueError:
+                print("Error: debe ingresar un número (1 o 2).")
+
+    # Mostrar el resultado
+    print(f"--- 🌍 Lista de países ordenada por {opcion} ---")
+    for pais in paises_ordenados:
+        print(f"{pais['nombre']:15} | Población: {pais['poblacion']:>10,} | Superficie: {pais['superficie']:>10,} km²")
+
+
+
+
+    
+
+        
     
