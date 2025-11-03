@@ -226,6 +226,7 @@ def menu_estadisticas(lista_paises):
         opcion=int(input("Ingrese que opción desea realizar: "))
     except ValueError:
         print("La opcion es invalida, ingrese un numero entre 1 y 4.")
+        return
     match opcion:
         case 1:
             paises_mayor_menor(lista_paises)
@@ -234,7 +235,7 @@ def menu_estadisticas(lista_paises):
         case 3:
             promedio_superficie(lista_paises)
         case 4:
-            paises_continete(lista_paises)
+            paises_continetes(lista_paises)
         case _:
             print("Error: El valor ingresado no pertenece a la lista de opciones.")
 
@@ -270,7 +271,7 @@ def promedio_superficie(lista_paises):
 
     print(f"\nEl promedio de superficie Mundial es de: {promedio_superficie_mundial:,.0f} km²")
 
-def paises_continete(lista_paises):
+def paises_continetes(lista_paises):
     conteo_continentes = {}
     if not lista_paises:
         print("No hay paises cargados.")
