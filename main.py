@@ -12,30 +12,24 @@ else:
 while True: #Usa bucle while para desplegar el menu y que el usuario elija la opcion que quiere.
     funciones.mostrar_menu()
 
-    try:
-        opcion = int(input("\nPor favor, ingrese una opción: ")) #Le pide al usuario la opcion del menu.
-        if not opcion in range(0,7):
-            print("\nLa opcion debe ser valida [0-6]")
-            continue
-    except ValueError:
-        print("\nLa opcion ingresada no es valida, intente de nuevo...")
-        continue
+    # Se reemplaza el try-except original por la nueva función de validación
+    opcion = funciones._solicitar_entero_rango("\nPor favor, ingrese una opción: ", 0, 6)
 
-    if opcion == 1:
-        funciones.buscar_pais(lista_paises) #Si el usuario elije 1, busca el pais por nombre, llamando la funcion buscar_pais.
-    elif opcion == 2:    
-        funciones.filtrar_continente(lista_paises)
-    elif opcion == 3:
+    # Se reemplaza el bloque if-elif por match-case
+    match opcion:
+        case 1:
+            funciones.buscar_pais(lista_paises) #Si el usuario elije 1, busca el pais por nombre, llamando la funcion buscar_pais.
+        case 2:    
+            funciones.filtrar_continente(lista_paises)
+        case 3:
             funciones.filtrar_superficie_poblacion(lista_paises, opcion)
-    elif opcion == 4:
+        case 4:
             funciones.filtrar_superficie_poblacion(lista_paises, opcion)
-        
-    elif opcion == 5:
+        case 5:
             funciones.ordenar_paises(lista_paises)
-        
-    elif opcion == 6:
+        case 6:
             funciones.menu_estadisticas(lista_paises)
-
-    elif opcion == 0:
-        print("\nSaliendo del programa.")
-        break
+        case 0:
+            print("\nSaliendo del programa.")
+            break
+        
