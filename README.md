@@ -1,4 +1,4 @@
-# TPI - Gestión de Datos de Países (Programación 1 - UTN)
+<img width="497" height="652" alt="{25886119-7FF7-4292-9D67-AEA472D85F26}" src="https://github.com/user-attachments/assets/7cbfedc1-a0fc-4fa2-99e6-caf0b2bd4412" /><img width="593" height="597" alt="{1F78A2EC-3889-44BE-ABC4-7C5F863F9B3B}" src="https://github.com/user-attachments/assets/ccb7a8ac-737a-4146-8f1c-c301d5b37267" /><img width="586" height="440" alt="{AFAD9767-7EA8-408C-9732-BA2FDA610D9F}" src="https://github.com/user-attachments/assets/5b61a223-296d-4dc7-bbb2-a83e4661f103" /><img width="491" height="252" alt="{70D61E20-CD72-4806-9CBD-6E8917B173E9}" src="https://github.com/user-attachments/assets/e016988e-ce60-4eae-b364-dcae8b4246a9" /># TPI - Gestión de Datos de Países (Programación 1 - UTN)
 
 Este proyecto es el Trabajo Práctico Integrador (TPI) de la materia **Programación 1** de la **Tecnicatura Universitaria en Programación** de la UTN.
 
@@ -65,9 +65,21 @@ Alemania,83149300,357022,Europa
 ## 🖥️ Ejemplos de Entradas y Salidas
 
 A continuación, se muestran capturas de pantalla de la ejecución del programa:
+Menu de opciones:
+<img width="450" height="197" alt="{FE234FD5-F109-40AB-A713-5209280084D2}" src="https://github.com/user-attachments/assets/b48e9af2-a673-4f0b-88f2-2a560e4c4fdb" />
+Coinicidencia Exacta:
+<img width="491" height="252" alt="{70D61E20-CD72-4806-9CBD-6E8917B173E9}" src="https://github.com/user-attachments/assets/4a4e8e6a-59b4-4a77-8ae4-da354ed30539" />
+Coincidencia Parcial:
+<img width="483" height="368" alt="{35E54719-89FD-4881-8488-825A579FAA6A}" src="https://github.com/user-attachments/assets/298eb55e-7393-440b-84a4-6ded03f3c2e8" />
+Filtrar por continente:
+<img width="586" height="440" alt="{AFAD9767-7EA8-408C-9732-BA2FDA610D9F}" src="https://github.com/user-attachments/assets/048bccd9-83f2-4179-8745-92015a408f5e" />
+Filtrar por población:
+<img width="593" height="597" alt="{1F78A2EC-3889-44BE-ABC4-7C5F863F9B3B}" src="https://github.com/user-attachments/assets/51ef724e-5782-494d-881c-229150fa021e" />
+Ordenar por nombre:
+<img width="497" height="652" alt="{25886119-7FF7-4292-9D67-AEA472D85F26}" src="https://github.com/user-attachments/assets/52a13c58-47f0-4124-ba24-4fa474efb6a8" />
 
-<img width="465" height="285" alt="{1B13A655-80BB-4B36-8362-4CD7130CF423}" src="https://github.com/user-attachments/assets/f64f6e1b-c464-4f63-beb9-d0eb4314d6ad" />
-<img width="465" height="285" alt="{99094A8F-7441-4046-B25B-E7D8BFFE95C7}" src="https://github.com/user-attachments/assets/6cc8112d-882f-44f3-8278-5ab4cea8d0a3" />
+
+
 
 
 ## 👥 Integrantes del Equipo
