@@ -33,11 +33,11 @@ El menú de la aplicación permite realizar las siguientes operaciones:
 
 1.  Clona este repositorio en tu máquina local:
     ```bash
-    git clone [https://github.com/](https://github.com/)[TU_USUARIO]/[TU_REPOSITORIO].git
+    git clone https://github.com/juanmagarciat/TPI-Program2025-GyV
     ```
 2.  Navega al directorio del proyecto:
     ```bash
-    cd [NOMBRE_DE_TU_CARPETA_DEL_PROYECTO]
+    cd TPI-Program2025-GyV
     ```
 3.  Ejecuta el programa principal (asegúrate de tener Python 3.x instalado):
     ```bash
@@ -60,6 +60,7 @@ Japón,125800000,377975,Asia
 Brasil,213993437,8515767,América
 Alemania,83149300,357022,Europa
 ```
+
 
 ## 🖥️ Ejemplos de Entradas y Salidas
 
