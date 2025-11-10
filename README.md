@@ -6,7 +6,7 @@ Programa funcional en Python 3.
 
 ## 📜 Descripción del Programa
 
-Es una aplicación de consola desarrollada en Python que permite gestionar información sobre países. El sistema carga un conjunto de datos desde un archivo CSV y ofrece un menú interactivo para consultar y analizar la información.
+Es una aplicación de consola desarrollada en Python que permite gestionar información sobre países. El sistema carga un conjunto de datos desde un archivo CSV y ofrece un menú interactivo para consultar y analizar la información. 
 
 El objetivo principal es aplicar los conceptos de estructuras de datos (listas y diccionarios), modularización con funciones y técnicas de filtrado y ordenamiento aprendidas en la cursada.
 
