@@ -1,4 +1,4 @@
-<img width="497" height="652" alt="{25886119-7FF7-4292-9D67-AEA472D85F26}" src="https://github.com/user-attachments/assets/7cbfedc1-a0fc-4fa2-99e6-caf0b2bd4412" /><img width="593" height="597" alt="{1F78A2EC-3889-44BE-ABC4-7C5F863F9B3B}" src="https://github.com/user-attachments/assets/ccb7a8ac-737a-4146-8f1c-c301d5b37267" /><img width="586" height="440" alt="{AFAD9767-7EA8-408C-9732-BA2FDA610D9F}" src="https://github.com/user-attachments/assets/5b61a223-296d-4dc7-bbb2-a83e4661f103" /><img width="491" height="252" alt="{70D61E20-CD72-4806-9CBD-6E8917B173E9}" src="https://github.com/user-attachments/assets/e016988e-ce60-4eae-b364-dcae8b4246a9" /># TPI - Gestión de Datos de Países (Programación 1 - UTN)
+# TPI - Gestión de Datos de Países (Programación 1 - UTN)
 
 Este proyecto es el Trabajo Práctico Integrador (TPI) de la materia **Programación 1** de la **Tecnicatura Universitaria en Programación** de la UTN.
 
@@ -84,8 +84,7 @@ Menu de opciones:
 ### Ordenar por nombre
 ![Ordenar por nombre](https://github.com/user-attachments/assets/52a13c58-47f0-4124-ba24-4fa474efb6a8)
 
-
-
+Se adjuntan mas capturas del funcionamiento en el Informe del trabajo (PDF) para no sobrecargar el README.
 
 
 ## 👥 Integrantes del Equipo
