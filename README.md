@@ -63,7 +63,94 @@ Alemania,83149300,357022,Europa
 
 ## 🖥️ Ejemplos de Entradas y Salidas
 
-A continuación, se muestran capturas de pantalla de la ejecución del programa:
+Buscar un país por nombre (coincidencia parcial o exacta).
+Coincidencia Exacta
+
+
+Coincidencia Parcial.
+ 
+
+
+Filtrar países por:
+Continente: 
+ 
+Rango de Población:
+  
+
+
+Rango de Superficie: 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ordenar Países: 
+Vistazo del Criterio:
+ 
+Nombre: 
+  
+
+
+
+
+
+
+
+
+
+Población: 
+ 
+
+Superficie(Micro Menu):
+ 
+
+
+
+
+
+
+
+
+
+
+Superficie Ascendente:
+ 
+
+
+Superficie Descendente: 
+ 
+
+
+
+
+
+
+Estadísticas:
+Menú: 
+ 
+Mayor y Menor población:
+ 
+Promedio Población:
+ 
+
+
+Promedio Superficie: 
+ 
+Cantidad de Paises Por continente:
+ 
+
+
 
 ## 👥 Integrantes del Equipo
 1. Juan Martin Garcia
