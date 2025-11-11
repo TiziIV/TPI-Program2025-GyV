@@ -45,6 +45,16 @@ El menú de la aplicación permite realizar las siguientes operaciones:
     ```
 4.  Una vez en ejecución, el programa mostrará un menú en la consola. Ingresa el número de la opción deseada y presiona Enter.
 
+## 🎬 Demostración en Video
+
+Para ver el programa en acción y una demostración de todas las funcionalidades del menú, mira el siguiente video:
+
+Recomendado visualizar con Google Vids
+
+**▶️ Ver Demostración del TPI - Gestión de Datos de Países**
+https://drive.google.com/file/d/1GKTtUucqyQ9-KB1kcp-NTYmPnM1EqdYQ/view?usp=drive_link
+
+
 ## 📊 Dataset (paises.csv)
 
 El programa utiliza un archivo `paises.csv` que debe estar en la misma carpeta que el script.
@@ -91,3 +101,4 @@ Se adjuntan mas capturas del funcionamiento en el Informe del trabajo (PDF) para
 1. Juan Martin Garcia
 
 2. Tiziano Valentini
+
