@@ -12,10 +12,9 @@ else:
 while True: #Usa bucle while para desplegar el menu y que el usuario elija la opcion que quiere.
     funciones.mostrar_menu()
 
-    # Se reemplaza el try-except original por la nueva función de validación
+    # Se reemplaza el try except original por la nueva función de validación
     opcion = funciones._solicitar_entero_rango("\nPor favor, ingrese una opción: ", 0, 6)
 
-    # Se reemplaza el bloque if-elif por match-case
     match opcion:
         case 1:
             funciones.buscar_pais(lista_paises) #Si el usuario elije 1, busca el pais por nombre, llamando la funcion buscar_pais.

@@ -72,14 +72,14 @@ def buscar_pais(lista_paises):
     print("\n1 - Buscar país por nombre.") 
     busqueda = _solicitar_texto_no_vacio("\nIngrese nombre del país que desea buscar: ") #Le pide al usuario el pais que desea buscar.
     
-    # El 'if not busqueda:' original se elimina porque la función ya lo valida.
+    # El if not busqueda: original se elimina porque la función ya lo valida.
     
     busqueda_lower = busqueda.lower() #Cambia a minusculas para busarlo en la lista.
 
-    pais_encontrado = []#Define que todavia no encuentra ningun pais que coincida.
+    pais_encontrado = []# Define que todavia no encuentra ningun pais que coincida.
 
-    for pais in lista_paises: #Recorre la lista de paies, elemento por elemento.
-        nombre_pais_lower = pais["nombre"].lower() #Cambia a minusculas el pais de la lista para luego compararlo.
+    for pais in lista_paises: # Recorre la lista de paies, elemento por elemento.
+        nombre_pais_lower = pais["nombre"].lower() # Cambia a minusculas el pais de la lista para luego compararlo.
 
         if busqueda_lower in nombre_pais_lower: # Compara el pais con el pais buscado.
             pais_encontrado.append(pais) # Si lo encuentra le asigna el diccionario de ese pais para mostrar luego los datos.
@@ -140,11 +140,17 @@ def filtrar_superficie_poblacion(lista_paises,opcion):
         # Si la entrada está vacía (el usuario solo presionó Enter)...
         if not minimo:
             minimo = 0 # Asigna 0 como valor mínimo.
-            break # Sale del bucle 'while True'.
+            break # Sale del bucle while True.
         try:
             # Intenta convertir el valor ingresado a un número entero.
             minimo = int(minimo)
-            break # Si lo logra, sale del bucle.
+            
+            # Verifica si el número es negativo
+            if minimo < 0:
+                print(f"\nError: El valor no puede ser negativo. Intente de nuevo.")
+                continue # Vuelve al inicio del bucle para pedir el dato de nuevo.
+
+            break # Si lo logra (y no es negativo), sale del bucle.
         except ValueError:
             # Si la conversión falla (ej. ingresó "hola"), muestra un error.
             print(f"\nEl numero ingresado no es valido, vuelva a intentarlo...")
@@ -163,7 +169,13 @@ def filtrar_superficie_poblacion(lista_paises,opcion):
         try:
             # Intenta convertir el valor ingresado a un número entero.
             maximo = int(maximo)
-            break # Si lo logra, sale del bucle.
+            
+            # Verifica si el número es negativo
+            if maximo < 0:
+                print(f"\nError: El valor no puede ser negativo. Intente de nuevo.")
+                continue # Vuelve al inicio del bucle para pedir el dato de nuevo.
+            
+            break # Si lo logra (y no es negativo), sale del bucle.
         except ValueError:
             # Si la conversión falla, muestra un error y vuelve a pedir.
             print("\nEl numero ingresado no es valido, vuelva a intentarlo...")
@@ -193,7 +205,7 @@ def filtrar_superficie_poblacion(lista_paises,opcion):
             maximo = "Sin limite"
             
         # Informa al usuario cuántos resultados se encontraron.
-        print(f"\nSe encontraron {len(paises_encontrados)} con {atributo} entre {minimo} y {maximo}")
+        print(f"\nSe encontraron {len(paises_encontrados)} con {atributo} entre {minimo:,} y {maximo:,}")
         # Recorre la lista de encontrados y muestra cada país format
         for pais in paises_encontrados:
             _mostrar_pais(pais)
@@ -289,7 +301,7 @@ def menu_estadisticas(lista_paises):
 def paises_mayor_menor(lista_paises):
     # Verifica si la lista está vacía antes de procesarla.
     if not lista_paises:
-        print(" La lista de países está vacía.")
+        print("⚠️ La lista de países está vacía.")
         return
     # Ordena la lista de países usando la población como criterio (de menor a mayor).
     paises_ordenados=sorted(lista_paises, key=lambda pais: pais['poblacion'])
@@ -307,7 +319,7 @@ def paises_mayor_menor(lista_paises):
 def promedio_poblacion(lista_paises):
     # Verifica si la lista está vacía.
     if not lista_paises:
-        print("\n La lista de países está vacía.")
+        print("\n⚠️ La lista de países está vacía.")
         return
     # Suma la población de todos los países en la lista.
     # Se usa una expresión generadora para eficiencia.
@@ -322,7 +334,7 @@ def promedio_poblacion(lista_paises):
 def promedio_superficie(lista_paises):
     # Verifica si la lista está vacía.
     if not lista_paises:
-        print("\n La lista de países está vacía.")
+        print("\n⚠️ La lista de países está vacía.")
         return
     # Suma la superficie de todos los países en la lista.
     superficie_total_mundial=sum(pais['superficie'] for pais in lista_paises)
