@@ -76,10 +76,10 @@ def buscar_pais(lista_paises):
     
     busqueda_lower = busqueda.lower() #Cambia a minusculas para busarlo en la lista.
 
-    pais_encontrado = []#Define que todavia no encuentra ningun pais que coincida.
+    pais_encontrado = []# Define que todavia no encuentra ningun pais que coincida.
 
-    for pais in lista_paises: #Recorre la lista de paies, elemento por elemento.
-        nombre_pais_lower = pais["nombre"].lower() #Cambia a minusculas el pais de la lista para luego compararlo.
+    for pais in lista_paises: # Recorre la lista de paies, elemento por elemento.
+        nombre_pais_lower = pais["nombre"].lower() # Cambia a minusculas el pais de la lista para luego compararlo.
 
         if busqueda_lower in nombre_pais_lower: # Compara el pais con el pais buscado.
             pais_encontrado.append(pais) # Si lo encuentra le asigna el diccionario de ese pais para mostrar luego los datos.
@@ -140,7 +140,7 @@ def filtrar_superficie_poblacion(lista_paises,opcion):
         # Si la entrada está vacía (el usuario solo presionó Enter)...
         if not minimo:
             minimo = 0 # Asigna 0 como valor mínimo.
-            break # Sale del bucle 'while True'.
+            break # Sale del bucle while True.
         try:
             # Intenta convertir el valor ingresado a un número entero.
             minimo = int(minimo)

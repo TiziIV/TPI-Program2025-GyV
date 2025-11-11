@@ -45,6 +45,16 @@ El menú de la aplicación permite realizar las siguientes operaciones:
     ```
 4.  Una vez en ejecución, el programa mostrará un menú en la consola. Ingresa el número de la opción deseada y presiona Enter.
 
+## 🎬 Demostración en Video
+
+Para ver el programa en acción y una demostración de todas las funcionalidades del menú, mira el siguiente video:
+
+Recomendado visualizar con Google Vids
+
+**▶️ Ver Demostración del TPI - Gestión de Datos de Países**
+https://drive.google.com/file/d/1GKTtUucqyQ9-KB1kcp-NTYmPnM1EqdYQ/view?usp=drive_link
+
+
 ## 📊 Dataset (paises.csv)
 
 El programa utiliza un archivo `paises.csv` que debe estar en la misma carpeta que el script.
@@ -65,6 +75,27 @@ Alemania,83149300,357022,Europa
 ## 🖥️ Ejemplos de Entradas y Salidas
 
 A continuación, se muestran capturas de pantalla de la ejecución del programa:
+Menu de opciones:
+### Menú de opciones
+![Menu de opciones](https://github.com/user-attachments/assets/b48e9af2-a673-4f0b-88f2-2a560e4c4fdb)
+
+### Coincidencia Exacta
+![Coinicidencia Exacta](https://github.com/user-attachments/assets/4a4e8e6a-59b4-4a77-8ae4-da354ed30539)
+
+### Coincidencia Parcial
+![Coincidencia Parcial](https://github.com/user-attachments/assets/298eb55e-7393-440b-84a4-6ded03f3c2e8)
+
+### Filtrar por continente
+![Filtrar por continente](https://github.com/user-attachments/assets/048bccd9-83f2-4179-8745-92015a408f5e)
+
+### Filtrar por población
+![Filtrar por población](https://github.com/user-attachments/assets/51ef724e-5782-494d-881c-229150fa021e)
+
+### Ordenar por nombre
+![Ordenar por nombre](https://github.com/user-attachments/assets/52a13c58-47f0-4124-ba24-4fa474efb6a8)
+
+Se adjuntan mas capturas del funcionamiento en el Informe del trabajo (PDF) para no sobrecargar el README.
+
 
 ## 👥 Integrantes del Equipo
 1. Juan Martin Garcia
